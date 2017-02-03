@@ -11,11 +11,12 @@ function debugOptions(options) {
 
 function showAuthorBadge(trello) {
     return trello.member('fullName')
-        .get('fullName')
         .then(result => {
             console.log(result);
             return [];
-        })
+        }, error => {
+            console.log("error occurred", error)
+            })
 }
 
 function openSettings(options) {
