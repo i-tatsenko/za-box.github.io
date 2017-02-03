@@ -14,7 +14,7 @@ function showAuthorBadge(trello) {
         .then(result => {
             console.log(result);
             return [{
-                title: 'Author',
+                title: 'Member',
                 text: result.fullName,
                 icon: WHITE_ICON,
                 color: 'green'
@@ -22,6 +22,20 @@ function showAuthorBadge(trello) {
         }, error => {
             console.log("error occurred", error)
             })
+}
+
+function createCardFromIsuueUrl(trello, url) {
+    let issueUrlTemplate = /https:\/\/issues.wdf.sap.corp\/browse\/HS-(\d+)/;
+    let parsedIssueLink = issueUrlTemplate.exec(url);
+    if (parsedIssueLink) {
+        let issueNum = parsedIssueLink[1];
+        return {
+            name: issueNum,
+            description: ""
+        }
+    } else
+        throw trello.NotHandled();
+
 }
 
 function openSettings(options) {
@@ -56,8 +70,7 @@ TrelloPowerUp.initialize({
         return showAuthorBadge(t);
     },
     'card-from-url': function (t, options) {
-        throw t.NotHandled();
-
+        return createCardFromIsuueUrl(t, options.url);
     },
 
     'show-settings': function (t, options) {
