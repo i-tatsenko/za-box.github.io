@@ -1,0 +1,27 @@
+{
+  "name": "Trello Merge Process",
+  "description": "",
+  "details": "Power-Up for making merge process more user friendly",
+  "icon": {
+    "url": "./images/logo.png"
+  },
+  "author": "Ivan Tatsenko",
+  "capabilities": [
+    "attachment-sections",
+    "callback",
+    "card-badges",
+    "card-buttons",
+    "card-detail-badges",
+    "card-from-url",
+    "format-url",
+    "show-settings"
+  ],
+  "connectors": {
+    "iframe": {
+      "url": "./index.html"
+    }
+  },
+  "recommend": {
+    "urls": []
+  }
+}
