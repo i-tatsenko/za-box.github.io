@@ -62,6 +62,10 @@ TrelloPowerUp.initialize({
         console.log("Card from URL");
         return createCardFromIsuueUrl(t, options.url);
     },
+    'format-url': function(t, options) {
+        console.log("Format URL");
+        return createCardFromIsuueUrl(t, options.url);
+    },
 
     'show-settings': function (t, options) {
         return t.popup({
