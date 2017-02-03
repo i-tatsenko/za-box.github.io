@@ -30,7 +30,7 @@ function createCardFromIsuueUrl(trello, url) {
     if (parsedIssueLink) {
         let issueNum = parsedIssueLink[1];
         return {
-            name: issueNum,
+            text: issueNum,
             description: ""
         }
     } else
