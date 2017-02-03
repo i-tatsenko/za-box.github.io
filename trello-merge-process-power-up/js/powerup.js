@@ -12,7 +12,6 @@ function debugOptions(options) {
 function showAuthorBadge(trello) {
     return trello.member('fullName')
         .then(result => {
-            console.log(result);
             return [{
                 title: 'Member',
                 text: result.fullName,
