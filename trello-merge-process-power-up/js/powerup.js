@@ -41,12 +41,6 @@ function openSettings(options) {
     debugOptions(options)
 }
 TrelloPowerUp.initialize({
-    'attachment-sections': function (t, options) {
-        return []
-    },
-    'attachment-thumbnail': function (t, options) {
-        throw t.NotHandled();
-    },
     'board-buttons': function (t, options) {
         return [{
             icon: WHITE_ICON,
@@ -54,10 +48,9 @@ TrelloPowerUp.initialize({
             callback: () => openSettings(options)
         }];
     },
-    'card-badges': function (t, options) {
-        return showAuthorBadge(t);
+    'card-badges': showAuthorBadge,
+    'card-detail-badges': showAuthorBadge,
 
-    },
     'card-buttons': function (t, options) {
         return [{
             icon: GRAY_ICON,
@@ -65,10 +58,8 @@ TrelloPowerUp.initialize({
             callback: () => openJiraTask(options)
         }];
     },
-    'card-detail-badges': function (t, options) {
-        return showAuthorBadge(t);
-    },
     'card-from-url': function (t, options) {
+        console.log("Card from URL");
         return createCardFromIsuueUrl(t, options.url);
     },
 

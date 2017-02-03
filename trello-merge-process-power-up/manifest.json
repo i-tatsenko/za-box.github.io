@@ -7,13 +7,10 @@
   },
   "author": "Ivan Tatsenko",
   "capabilities": [
-    "attachment-sections",
-    "callback",
-    "card-badges",
     "card-buttons",
+    "card-badges",
     "card-detail-badges",
     "card-from-url",
-    "format-url",
     "show-settings"
   ],
   "connectors": {
