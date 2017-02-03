@@ -10,8 +10,8 @@ function debugOptions(options) {
 }
 
 function showAuthorBadge(trello) {
-    return trello.card("members")
-        .get('username', 'fullName')
+    return trello.member('fullName')
+        .get('fullName')
         .then(result => {
             console.log(result);
             return [];
