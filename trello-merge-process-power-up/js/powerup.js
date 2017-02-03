@@ -35,8 +35,8 @@ TrelloPowerUp.initialize({
         }];
     },
     'card-badges': function (t, options) {
-        debugOptions(options);
-        return [];
+        return showAuthorBadge(t);
+
     },
     'card-buttons': function (t, options) {
         return [{
@@ -46,7 +46,7 @@ TrelloPowerUp.initialize({
         }];
     },
     'card-detail-badges': function (t, options) {
-        showAuthorBadge(t);
+        return showAuthorBadge(t);
     },
     'card-from-url': function (t, options) {
         throw t.NotHandled();
