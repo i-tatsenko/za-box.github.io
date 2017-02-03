@@ -13,7 +13,12 @@ function showAuthorBadge(trello) {
     return trello.member('fullName')
         .then(result => {
             console.log(result);
-            return [];
+            return [{
+                title: 'Author',
+                text: result.fullName,
+                icon: WHITE_ICON,
+                color: 'green'
+            }];
         }, error => {
             console.log("error occurred", error)
             })
