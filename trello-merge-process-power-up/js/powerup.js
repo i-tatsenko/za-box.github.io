@@ -1,6 +1,6 @@
 const WHITE_ICON = './images/icon-white.svg';
 const BRANCH_ICON = './images/git-branch.svg';
-const JIRA_ICON = './images/JIRA_logo.svg';
+const JIRA_ICON = './images/jira-logo.png';
 
 function openJiraTask(trello) {
     trello.card("name")
