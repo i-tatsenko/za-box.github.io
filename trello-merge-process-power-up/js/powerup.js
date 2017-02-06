@@ -1,5 +1,6 @@
-var WHITE_ICON = './images/icon-white.svg';
-var GRAY_ICON = './images/icon-gray.svg';
+const WHITE_ICON = './images/icon-white.svg';
+const BRANCH_ICON = './images/git-branch.svg';
+const JIRA_ICON = './images/JIRA_logo.svg';
 
 function openJiraTask(trello) {
     trello.card("name")
@@ -20,7 +21,7 @@ function createMemberBadge(member) {
     return {
         title: 'Member',
         text: member.fullName,
-        icon: WHITE_ICON,
+        icon: BRANCH_ICON,
         color: 'green'
     }
 }
@@ -45,7 +46,7 @@ TrelloPowerUp.initialize({
     'board-buttons': function (t, options) {
         return [{
             icon: WHITE_ICON,
-            text: 'Open Jira task',
+            text: 'Settings',
             callback: () => openSettings(options)
         }];
     },
@@ -53,11 +54,10 @@ TrelloPowerUp.initialize({
     'card-detail-badges': showMemberBadges,
 
     'card-buttons': function (t, options) {
-        debugOptions(options);
         return t.card("name")
             .then(result => {
                 return {
-                    icon: GRAY_ICON,
+                    icon: JIRA_ICON,
                     text: 'Open Jira Task',
                     url: result.name
                 }
