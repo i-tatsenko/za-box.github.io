@@ -11,15 +11,6 @@
    width="200"
    height="100"
    id="svg2">
-  <defs
-     id="defs4">
-    <clipPath
-       id="clipPath3944">
-      <path
-         d="M 0,768 1024,768 1024,0 0,0 0,768 z"
-         id="path3946" />
-    </clipPath>
-  </defs>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -28,17 +19,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(0,-952.36218)"
+     transform="translate(00,-952.36218)"
      id="layer1">
-    <g
-       transform="translate(-2.627806,4.004985)"
-       id="g4088">
-
       <path
          d="m 12.639093,980.18441 c 0,0 -0.48349,10.24702 14.710521,25.16459 15.193689,14.9177 16.92053,20.977 16.091736,25.1644 l 11.050044,0 c 0,0 1.004345,-17.3113 -16.123304,-29.4665 0,0 -11.790578,-10.4863 -13.711974,-18.81224 0,0 -5.804133,-0.003 -9.842447,-3.25108 0,0 -2.177798,-1.30585 -2.174576,1.20083"
          id="path3962"
