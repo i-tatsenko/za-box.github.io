@@ -21,7 +21,7 @@ function createMemberBadge(member) {
         title: 'Member',
         text: member.fullName,
         icon: WHITE_ICON,
-        color: 'teal'
+        color: 'green'
     }
 }
 function createCardFromIssueUrl(trello, url) {
