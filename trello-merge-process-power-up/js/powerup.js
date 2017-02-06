@@ -1,30 +1,30 @@
 var WHITE_ICON = './images/icon-white.svg';
 var GRAY_ICON = './images/icon-gray.svg';
 
-function openJiraTask(url) {
-    debugOptions(url)
+function openJiraTask(trello) {
+    trello.card("name")
 }
 
 function debugOptions(options) {
     console.log(JSON.stringify(options));
 }
 
-function showAuthorBadge(trello) {
-    trello.card('members').then(result => console.log(result));
-    return trello.member('fullName')
+function showMemberBadges(trello) {
+    return trello.card('members')
         .then(result => {
-            return [{
-                title: 'Member',
-                text: result.fullName,
-                icon: WHITE_ICON,
-                color: 'green'
-            }];
-        }, error => {
-            console.log("error occurred", error)
-            })
+            return result.members.map(createMemberBadge)
+        });
 }
 
-function createCardFromIsuueUrl(trello, url) {
+function createMemberBadge(member) {
+    return {
+        title: 'Member',
+        text: member.fullName,
+        icon: WHITE_ICON,
+        color: 'teal'
+    }
+}
+function createCardFromIssueUrl(trello, url) {
     let issueUrlTemplate = /https:\/\/issues.wdf.sap.corp\/browse\/HS-(\d+)/;
     let parsedIssueLink = issueUrlTemplate.exec(url);
     if (parsedIssueLink) {
@@ -49,23 +49,27 @@ TrelloPowerUp.initialize({
             callback: () => openSettings(options)
         }];
     },
-    'card-badges': showAuthorBadge,
-    'card-detail-badges': showAuthorBadge,
+    'card-badges': showMemberBadges,
+    'card-detail-badges': showMemberBadges,
 
     'card-buttons': function (t, options) {
-        return [{
-            icon: GRAY_ICON,
-            text: 'Open Jira Task',
-            callback: () => openJiraTask(options)
-        }];
+        debugOptions(options);
+        return t.card("name")
+            .then(result => {
+                return {
+                    icon: GRAY_ICON,
+                    text: 'Open Jira Task',
+                    url: result.name
+                }
+            })
     },
     'card-from-url': function (t, options) {
         console.log("Card from URL");
-        return createCardFromIsuueUrl(t, options.url);
+        return createCardFromIssueUrl(t, options.url);
     },
-    'format-url': function(t, options) {
+    'format-url': function (t, options) {
         console.log("Format URL");
-        return createCardFromIsuueUrl(t, options.url);
+        return createCardFromIssueUrl(t, options.url);
     },
 
     'show-settings': function (t, options) {
